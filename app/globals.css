@@ -99,15 +99,18 @@
   }
 }
 
-body {
-  background: var(--color-bg);
-  color: var(--color-deep);
-  font-family: var(--font-sans);
-}
+/* In the base layer so Tailwind utilities (e.g. text-white on a link) can override them. */
+@layer base {
+  body {
+    background: var(--color-bg);
+    color: var(--color-deep);
+    font-family: var(--font-sans);
+  }
 
-a {
-  color: var(--color-link);
-  text-decoration: none;
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
