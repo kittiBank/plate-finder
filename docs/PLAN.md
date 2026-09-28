@@ -55,7 +55,7 @@ This plan sets the phases and the per-feature plans we will build together. Each
 - `geo.ts`: `blurLocation(lat, lng)` snaps to a grid of roughly 200 m, and `distanceKm()`.
 - Tests are written first, with Thai edge cases.
 
-### Phase 2: Shared UI components (mock data, no backend)
+### Phase 2: Shared UI components (mock data, no backend) · status: done (gallery at /dev/components)
 `components/ui/`: GlassCard, PrimaryButton, OutlineButton, DashedAddButton, IconButton, Toggle, Chip, StatusBadge, BottomNav (uses `usePathname` to show the active tab), HeroHeader, BottomSheet, BellButton.
 `components/plate/PlateBadge.tsx` with sizes xs, sm and md.
 - A `/dev/components` gallery page (dev only) for visual checks.
