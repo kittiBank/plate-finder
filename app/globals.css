@@ -41,6 +41,43 @@
   --animate-float: float 7s ease-in-out infinite;
   --animate-blink: blink 1.6s ease-in-out infinite;
   --animate-shine: shine 3.2s ease-in-out infinite;
+  --animate-drop: drop 0.6s var(--ease-out-soft) both;
+  --animate-pulse-ring: pulse-ring 2.2s ease-out infinite;
+  --animate-sheet: sheet 0.6s var(--ease-out-soft) 0.15s both;
+
+  @keyframes drop {
+    0% {
+      opacity: 0;
+      transform: translateY(-30%);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(5%);
+    }
+    100% {
+      transform: none;
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+  @keyframes sheet {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 
   @keyframes rise {
     from {
@@ -89,6 +126,11 @@
   background: linear-gradient(150deg, #2d9cdb 0%, #1a6fc4 50%, #134f99 100%);
 }
 
+/* Entrance stagger: stagger-1 = 60ms, stagger-2 = 120ms, ... (pair with animate-rise) */
+@utility stagger-* {
+  animation-delay: calc(--value(integer) * 60ms);
+}
+
 /* Press feedback: scale(.96) */
 @utility tap {
   transition:
@@ -111,6 +153,19 @@
     color: var(--color-link);
     text-decoration: none;
   }
+}
+
+/* Leaflet: calmer tiles closer to the /design palette; markers are plain containers. */
+.leaflet-container {
+  background: #e6edf2;
+  font-family: var(--font-sans);
+}
+.leaflet-tile-pane {
+  filter: saturate(0.55) brightness(1.03);
+}
+.leaflet-marker-icon.map-pin {
+  background: none;
+  border: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -8,6 +8,7 @@ import { DashedAddButton, OutlineButton, PrimaryButton } from "@/components/ui/B
 import { GlassCard } from "@/components/ui/GlassCard";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 import { IconButton } from "@/components/ui/IconButton";
+import { ProfileButton } from "@/components/ui/ProfileButton";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import {
   ArrowRightIcon,
@@ -16,7 +17,6 @@ import {
   LocateIcon,
   MoreIcon,
   NavigateIcon,
-  UserIcon,
 } from "@/components/ui/icons";
 import { th } from "@/locales/th";
 import { ChipDemo, ToggleDemo } from "./Demos";
@@ -36,13 +36,7 @@ export default function ComponentsGallery() {
         <div className="flex gap-2">
           <BellButton unreadCount={1} />
           <BellButton />
-          <IconButton
-            label={th.header.profile}
-            variant="glass-dark"
-            className="rounded-full border-2 border-white/70 bg-[linear-gradient(135deg,#7ed6ff,#3498db)]"
-          >
-            <UserIcon size={22} />
-          </IconButton>
+          <ProfileButton />
         </div>
       </div>
 

@@ -61,7 +61,7 @@ This plan sets the phases and the per-feature plans we will build together. Each
 - A `/dev/components` gallery page (dev only) for visual checks.
 - Unit tests for Toggle a11y (`role=switch`), PlateBadge formatting and BottomNav `aria-current`.
 
-### Phase 3: Designed screens with mock data
+### Phase 3: Designed screens with mock data · status: done (clusters: own grid clustering, no new dependency)
 Each screen: build it, take a Playwright screenshot at 390×844, compare it with the matching `/design` file and fix differences.
 1. **Home** `app/(tabs)/page.tsx`: hero, search (submits to `/search?q=`), 2 big actions, the My Plates preview card and the notify toggle.
 2. **My Plates** `app/(tabs)/my-plates/page.tsx`: summary chips, found card (yellow), tracking card, add-plate, notification settings (4 toggles).
