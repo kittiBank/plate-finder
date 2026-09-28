@@ -9,7 +9,7 @@ Mobile-first web app (PWA) for Thai flood victims to **report found license plat
 ## 1. Tech stack
 
 - **Framework:** Next.js (App Router) + TypeScript (strict)
-- **Styling:** Tailwind CSS. Design tokens live in `tailwind.config.ts` (see §4). No other CSS frameworks.
+- **Styling:** Tailwind CSS v4. Design tokens live in `app/globals.css` under `@theme` (there is no `tailwind.config.ts`; see §4). No other CSS frameworks.
 - **Backend:** Supabase (Postgres, Auth, Storage for photos, Row Level Security)
 - **Map:** Leaflet + react-leaflet (tiles: OpenStreetMap; can swap to Longdo Map later)
 - **OCR (plate reading):** server-side only, behind `lib/ocr/` interface so the provider can be swapped
@@ -116,6 +116,12 @@ design/                      # exported .dc.html + screenshots — the visual so
 
 Matching: exact on `normalized` + `province_code` = strong match. Partial matches are only suggestions and are never auto-notified.
 
+### MVP (no auth yet)
+- Users are identified by an anonymous device ID (httpOnly cookie). `profiles` is replaced by `devices` until auth lands.
+- No finder contact details are shown at all in the MVP; masked contact + ownership proof come with auth.
+- All writes go through server actions / route handlers; anon may read only public views (blurred location, no device ID).
+- OCR and SMS are post-MVP; MVP uses manual plate entry + in-app/Web Push notifications.
+
 ## 7. Privacy & safety (PDPA) — must follow
 
 - Never expose a finder's phone/email to the public. Contact happens only after a verified match, through in-app chat or masked contact.
@@ -131,6 +137,7 @@ Matching: exact on `normalized` + `province_code` = strong match. Partial matche
 
 ## 9. How to work in this repo
 
+0. The master plan (phases, per-feature steps, progress) is `docs/PLAN.md`. Read it before starting work and update its status when a step is done.
 1. Work in small steps. For anything non-trivial, write a short plan first and wait for approval.
 2. Build shared UI components before screens; build screens with mock data before wiring the backend.
 3. After UI work, take a Playwright screenshot at 390×844 and compare it with `/design`; fix visible differences.
