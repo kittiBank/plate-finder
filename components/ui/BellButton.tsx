@@ -13,7 +13,7 @@ export function BellButton({ unreadCount = 0, ...props }: Props) {
     <IconButton label={label} variant="glass-dark" {...props}>
       <BellIcon size={22} />
       {unreadCount > 0 && (
-        <span className="absolute top-2 right-[9px] size-2.5 rounded-full border-2 border-[#2f80bf] bg-accent" />
+        <span className="absolute top-2 right-[9px] size-3.5 rounded-full border-2 border-[#2f80bf] bg-accent" />
       )}
     </IconButton>
   );

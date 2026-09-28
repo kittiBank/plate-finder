@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import { Pressable, type PressableProps } from "./Pressable";
 
-type Variant = "glass-dark" | "glass-light" | "cta" | "ghost";
+type Variant = "glass-dark" | "glass-light" | "cta" | "ghost" | "plain";
 type Size = 44 | 48 | 52;
 
 const variants: Record<Variant, string> = {
@@ -12,6 +12,8 @@ const variants: Record<Variant, string> = {
     "border border-white bg-white/85 text-deep shadow-[0_8px_20px_rgba(44,62,80,0.16)] backdrop-blur-md",
   cta: "bg-cta text-white shadow-[0_10px_22px_rgba(26,111,196,0.35)]",
   ghost: "bg-transparent text-[#7f8c8d]",
+  /** No background; style it entirely through `className`. */
+  plain: "",
 };
 
 const sizes: Record<Size, string> = {
