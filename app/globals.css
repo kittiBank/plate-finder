@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Design tokens (CLAUDE.md §4). Tailwind v4 has no tailwind.config.ts — tokens live here. */
+@theme {
+  --color-aqua: #3498db;
+  --color-ocean: #2573a7;
+  --color-deep: #2c3e50;
+  --color-cta-from: #2d9cdb;
+  --color-cta-mid: #1a6fc4;
+  --color-cta-to: #134f99;
+  --color-link: #2471a3;
+  --color-accent: #f1c40f;
+  --color-accent-soft: #fdf2c7;
+  --color-accent-ink: #5c4600;
+  --color-info-soft: #e3f2fc;
+  --color-info-ink: #1a5f94;
+  --color-bg: #ecf0f1;
+  --color-surface: #ffffff;
+  --color-muted: #566573;
+  --color-line: #e5eaee;
+  --color-off: #c3ccd3;
+  --color-plate-ink: #1b1b1b;
+
+  --font-display: var(--font-prompt), sans-serif;
+  --font-sans: var(--font-plex-thai), system-ui, sans-serif;
+
+  --radius-plate: 10px;
+  --radius-button: 16px;
+  --radius-card: 24px;
+  --radius-nav: 24px;
+  --radius-hero: 36px;
+
+  --shadow-card: 0 10px 26px rgba(44, 62, 80, 0.1);
+  --shadow-cta: 0 10px 22px rgba(26, 111, 196, 0.32);
+  --shadow-nav: 0 12px 32px rgba(44, 62, 80, 0.18);
+  --shadow-plate: 0 3px 10px rgba(0, 0, 0, 0.14);
+
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --animate-rise: rise 0.55s var(--ease-out-soft) both;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-blink: blink 1.6s ease-in-out infinite;
+  --animate-shine: shine 3.2s ease-in-out infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+  @keyframes shine {
+    0% {
+      transform: translateX(-120%);
+    }
+    60%,
+    100% {
+      transform: translateX(220%);
+    }
+  }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility bg-hero {
+  background: linear-gradient(160deg, #3498db 0%, #2573a7 42%, #2c3e50 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility bg-cta {
+  background: linear-gradient(150deg, #2d9cdb 0%, #1a6fc4 50%, #134f99 100%);
+}
+
+/* Press feedback: scale(.96) */
+@utility tap {
+  transition:
+    transform 0.18s var(--ease-out-soft),
+    box-shadow 0.18s;
+  &:active {
+    transform: scale(0.96);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-deep);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
