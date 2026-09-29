@@ -99,6 +99,25 @@ export const PlusIcon = createIcon(<path d="M12 5v14M5 12h14" />, 2.2);
 
 export const ArrowRightIcon = createIcon(<path d="M5 12h14M13 6l6 6-6 6" />, 2.2);
 
+export const ArrowLeftIcon = createIcon(<path d="M19 12H5M11 6l-6 6 6 6" />, 2.2);
+
+export const ImageIcon = createIcon(
+  <>
+    <rect x="3" y="4" width="18" height="16" rx="2.5" />
+    <circle cx="9" cy="9.5" r="1.8" />
+    <path d="M21 15.5l-5-5L5 20" />
+  </>,
+  1.9,
+);
+
+export const ShieldIcon = createIcon(
+  <>
+    <path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6L12 3z" />
+    <path d="M9 12l2 2 4-4" />
+  </>,
+  1.9,
+);
+
 export const CheckIcon = createIcon(<path d="M20 6L9 17l-5-5" />, 2);
 
 export const CloseIcon = createIcon(<path d="M6 6l12 12M18 6L6 18" />, 2.2);

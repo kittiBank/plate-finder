@@ -68,9 +68,9 @@ Each screen: build it, take a Playwright screenshot at 390×844, compare it with
 3. **Map** `app/(tabs)/map/page.tsx`: react-leaflet with OSM tiles, loaded client-only with `dynamic(ssr:false)`. Includes cluster pins, the selected-plate pin, the you-are-here marker, filter chips, the bottom sheet and map controls. The design's clusters may need a marker-cluster plugin; we ask before adding it and can do simple grid clustering ourselves instead.
 - A shared `(tabs)/layout.tsx` holds the BottomNav.
 
-### Phase 4: New screens designed by Claude (mock data) · status: shared form pieces done (PlateInput, ProvincePicker); next: 4.1 report flow
+### Phase 4: New screens designed by Claude (mock data) · status: form pieces + 4.1 report flow done; next: 4.2 search
 Each screen gets a screenshot for your review before we continue.
-1. **Report flow** `/report`: steps are photo (camera/file input), then confirm plate (a plate input plus a province picker with search), then position front/rear, then location (map pin plus "use my location"), then submit and a success screen.
+1. **Report flow** `/report` (done: 5-step stepper photo → plate → position → location → review with `?step=` history, mock submit): steps are photo (camera/file input), then confirm plate (a plate input plus a province picker with search), then position front/rear, then location (map pin plus "use my location"), then submit and a success screen.
 2. **Search results** `/search`: normalized query with strong and partial results.
 3. **Plate detail** `/plates/[id]`: a found report with photo, approximate map and status.
 4. **Add lost plate** `/my-plates/new`: plate input, province, position, lost-since date.
