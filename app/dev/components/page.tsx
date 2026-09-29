@@ -19,7 +19,7 @@ import {
   NavigateIcon,
 } from "@/components/ui/icons";
 import { th } from "@/locales/th";
-import { ChipDemo, ToggleDemo } from "./Demos";
+import { ChipDemo, PlateFormDemo, ToggleDemo } from "./Demos";
 
 // Dev-only component gallery for visual checks (CLAUDE.md §9.2). Not part of the app.
 export default function ComponentsGallery() {
@@ -96,6 +96,10 @@ export default function ComponentsGallery() {
 
       <Section title="Chip">
         <ChipDemo />
+      </Section>
+
+      <Section title="PlateInput + ProvincePicker">
+        <PlateFormDemo />
       </Section>
 
       <Section title="GlassCard">

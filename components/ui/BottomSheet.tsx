@@ -1,13 +1,19 @@
 import type { HTMLAttributes } from "react";
 import { cn } from "@/lib/cn";
 
-/** Glass sheet pinned to the bottom of the screen (Map). Presentational for now; dragging comes later. */
-export function BottomSheet({ className, children, ...props }: HTMLAttributes<HTMLElement>) {
+type Props = HTMLAttributes<HTMLElement> & {
+  /** Opaque white instead of glass — for modal sheets whose content must not show the page through. */
+  solid?: boolean;
+};
+
+/** Sheet pinned to the bottom of the screen (Map, pickers). Presentational; dragging comes later. */
+export function BottomSheet({ solid = false, className, children, ...props }: Props) {
   return (
     <section
       className={cn(
-        "flex flex-col gap-3 rounded-t-[30px] border-t border-white bg-white/86 px-4 pt-2.5",
-        "shadow-[0_-12px_34px_rgba(44,62,80,0.14)] backdrop-blur-[22px] backdrop-saturate-150",
+        "flex flex-col gap-3 rounded-t-[30px] border-t border-white px-4 pt-2.5",
+        "shadow-[0_-12px_34px_rgba(44,62,80,0.14)]",
+        solid ? "bg-white" : "bg-white/86 backdrop-blur-[22px] backdrop-saturate-150",
         className,
       )}
       {...props}

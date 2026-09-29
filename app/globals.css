@@ -20,6 +20,7 @@
   --color-line: #e5eaee;
   --color-off: #c3ccd3;
   --color-plate-ink: #1b1b1b;
+  --color-danger: #b03a2e;
 
   --font-display: var(--font-prompt), sans-serif;
   --font-sans: var(--font-plex-thai), system-ui, sans-serif;
