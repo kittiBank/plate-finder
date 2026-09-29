@@ -8,14 +8,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("shows all mock reports and a selected plate", async ({ page }) => {
-  await expect(page.getByRole("heading", { name: "พบ 18 ป้ายใกล้คุณ" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "พบ 22 ป้ายใกล้คุณ" })).toBeVisible();
   await expect(page.getByRole("link", { name: "ดูรายละเอียด" })).toHaveAttribute("href", /^\/plates\/fr-/);
 });
 
 test("filters by plate number", async ({ page }) => {
   await page.getByRole("searchbox", { name: "ค้นหาพื้นที่หรือเลขทะเบียน" }).fill("1กข 1234");
-  await expect(page.getByRole("heading", { name: "พบ 1 ป้ายใกล้คุณ" })).toBeVisible();
-  await expect(page.getByRole("img", { name: /1กข 1234/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "พบ 2 ป้ายใกล้คุณ" })).toBeVisible();
+  await expect(page.getByRole("img", { name: /1กข 1234/ }).first()).toBeVisible();
 });
 
 test("shows an empty state when nothing matches", async ({ page }) => {

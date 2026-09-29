@@ -98,6 +98,51 @@ export function getMockFoundReports(now: Date): FoundReport[] {
       status: "open",
     });
   }
+
+  // Near-misses of fr-1 so /search?q=1กข1234 shows "similar" suggestions.
+  reports.push(
+    {
+      id: "fr-19",
+      plate: { prefixDigit: "1", letters: "กข", number: "1234" },
+      provinceCode: "13",
+      position: "rear",
+      placeName: "ถ.วิภาวดีรังสิต",
+      ...blurLocation(13.8081, 100.5612),
+      foundAt: ago(now, 26 * HOUR),
+      status: "open",
+    },
+    {
+      id: "fr-20",
+      plate: { prefixDigit: "1", letters: "กข", number: "1284" },
+      provinceCode: "10",
+      position: "front",
+      placeName: "ซ.โชคชัย 4",
+      ...blurLocation(13.7968, 100.5901),
+      foundAt: ago(now, 5 * HOUR),
+      status: "open",
+    },
+    // Same number, other letters / swapped digits, for number-only search (/search?q=1234).
+    {
+      id: "fr-21",
+      plate: { prefixDigit: null, letters: "ขค", number: "1234" },
+      provinceCode: "12",
+      position: "front",
+      placeName: "ถ.ประดิษฐ์มนูธรรม",
+      ...blurLocation(13.7991, 100.6078),
+      foundAt: ago(now, 9 * HOUR),
+      status: "open",
+    },
+    {
+      id: "fr-22",
+      plate: { prefixDigit: "3", letters: "ฆก", number: "1324" },
+      provinceCode: "10",
+      position: "rear",
+      placeName: "ซ.ลาดพร้าว 101",
+      ...blurLocation(13.7902, 100.6103),
+      foundAt: ago(now, 30 * HOUR),
+      status: "open",
+    },
+  );
   return reports;
 }
 
