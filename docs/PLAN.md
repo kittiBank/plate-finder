@@ -68,7 +68,7 @@ Each screen: build it, take a Playwright screenshot at 390×844, compare it with
 3. **Map** `app/(tabs)/map/page.tsx`: react-leaflet with OSM tiles, loaded client-only with `dynamic(ssr:false)`. Includes cluster pins, the selected-plate pin, the you-are-here marker, filter chips, the bottom sheet and map controls. The design's clusters may need a marker-cluster plugin; we ask before adding it and can do simple grid clustering ourselves instead.
 - A shared `(tabs)/layout.tsx` holds the BottomNav.
 
-### Phase 4: New screens designed by Claude (mock data)
+### Phase 4: New screens designed by Claude (mock data) · status: shared form pieces done (PlateInput, ProvincePicker); next: 4.1 report flow
 Each screen gets a screenshot for your review before we continue.
 1. **Report flow** `/report`: steps are photo (camera/file input), then confirm plate (a plate input plus a province picker with search), then position front/rear, then location (map pin plus "use my location"), then submit and a success screen.
 2. **Search results** `/search`: normalized query with strong and partial results.
@@ -76,7 +76,8 @@ Each screen gets a screenshot for your review before we continue.
 4. **Add lost plate** `/my-plates/new`: plate input, province, position, lost-since date.
 5. **Match detail** `/matches/[id]`: the owner view. The MVP shows no contact details, only an "ติดต่อผู้พบ (เร็วๆ นี้)" placeholder.
 6. **Notifications** sheet or page, opened from the bell.
-- Shared form pieces: `PlateInput` (live parse and validation) and `ProvincePicker` (a searchable list, no free text).
+- Shared form pieces (built first): `PlateInput` (live parse and validation) and `ProvincePicker` (a searchable list in a native `<dialog>` sheet, no free text; `allowUnknown` for finders).
+- Decisions: the report photo is **required**; the report flow is a **stepper** (one question per screen).
 
 ### Phase 5: Backend (Supabase local)
 1. Migrations in `supabase/migrations/`: `devices` (a stand-in for profiles in the MVP: id plus notification prefs), `lost_plates`, `found_reports`, `matches`, `notifications`, `push_subscriptions` and `rate_limits`. Add enums, indexes on `(normalized, province_code)`, RLS on everything, and a public view `found_reports_public` with blurred coordinates.

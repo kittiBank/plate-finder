@@ -69,6 +69,7 @@ design/                      # exported .dc.html + screenshots — the visual so
 | `muted` | `#566573` | secondary text (min for AA on white) |
 | `line` | `#e5eaee` | dividers |
 | `off` | `#c3ccd3` | toggle off track |
+| `danger` | `#b03a2e` | form validation errors only (5.9:1 on white) |
 
 - Hero: `linear-gradient(160deg, #3498db 0%, #2573a7 42%, #2c3e50 100%)`, bottom radius 36px.
 - Do **not** use the yellow accent for large surfaces (was tried and rejected as too loud).

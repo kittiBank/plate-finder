@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { PlateInput } from "@/components/form/PlateInput";
+import { ProvincePicker, type ProvinceValue } from "@/components/form/ProvincePicker";
 import { Chip } from "@/components/ui/Chip";
 import { Toggle } from "@/components/ui/Toggle";
 
@@ -33,6 +35,17 @@ export function ChipDemo() {
         <span className="size-2.5 rounded-[3px] border border-dashed border-link bg-aqua/40" />
         พื้นที่น้ำท่วม
       </Chip>
+    </div>
+  );
+}
+
+export function PlateFormDemo() {
+  const [plate, setPlate] = useState("");
+  const [province, setProvince] = useState<ProvinceValue>(undefined);
+  return (
+    <div className="flex flex-col gap-4">
+      <PlateInput value={plate} onChange={setPlate} provinceCode={province} />
+      <ProvincePicker value={province} onChange={setProvince} allowUnknown />
     </div>
   );
 }
