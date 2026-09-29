@@ -155,3 +155,7 @@ export const MOCK_FLOOD_AREA: LatLng[] = [
   { lat: 13.788, lng: 100.598 },
   { lat: 13.792, lng: 100.58 },
 ];
+
+export function getMockFoundReport(id: string, now: Date): FoundReport | undefined {
+  return getMockFoundReports(now).find((r) => r.id === id);
+}

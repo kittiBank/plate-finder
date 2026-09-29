@@ -126,6 +126,8 @@ export const ChevronDownIcon = createIcon(<path d="M6 9l6 6 6-6" />, 2.2);
 
 export const ChevronRightIcon = createIcon(<path d="M9 6l6 6-6 6" />, 2.2);
 
+export const ExpandIcon = createIcon(<path d="M14 4h6v6M10 20H4v-6M20 4l-6.5 6.5M4 20l6.5-6.5" />, 2);
+
 export const PinIcon = createIcon(
   <>
     <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
