@@ -5,6 +5,8 @@ import { cn } from "@/lib/cn";
 import { th } from "@/locales/th";
 
 type Props = {
+  /** Small title next to the back button; defaults to the report flow title. */
+  title?: string;
   heading: string;
   sub: string;
   /** 1-based; omit to hide the progress bar (success screen). */
@@ -16,7 +18,7 @@ type Props = {
 };
 
 /** Compact hero for full-screen flows: back button, step progress and the step's question. */
-export function ReportHeader({ heading, sub, progress, back, icon }: Props) {
+export function ReportHeader({ title = th.report.title, heading, sub, progress, back, icon }: Props) {
   return (
     <header className="relative overflow-hidden rounded-b-hero bg-hero px-5 pt-[18px] pb-7 text-white">
       <div
@@ -35,7 +37,7 @@ export function ReportHeader({ heading, sub, progress, back, icon }: Props) {
               <ArrowLeftIcon size={22} />
             </IconButton>
           ))}
-        <span className="font-display text-base font-semibold">{th.report.title}</span>
+        <span className="font-display text-base font-semibold">{title}</span>
       </div>
 
       {progress && (
